@@ -1,19 +1,7 @@
-# 6020_Assignment1
+# 6020_Submissions
 
-MCSC6020G ASSIGNMENT ONE
+MCSC6020G Submissions
 
-TO RUN CODE:
-- IMPORT PROJECT INTO IDE
-- OPEN test_det.py
-- ENSURE ALL IMPORT LIBRARIES ARE INSTALLED
-- SELECT RUN FROM MENU
-- SELECT test_det.py
+READMEs for each submission will be located within their respective folders. 
 
-NOTES:
-- THE TOP PORTION OF test_det.py CONTAINS PARAMETERS
-  THAT CAN BE CHANGED TO CUSTOMIZE THE TEST
-- TO RUN FROM SCRATCH (NOT PULLING DATA FROM PROJECT
-  CSV FILES) SET THE FOLLOWING TO TRUE
-   runTestLoops = True
-   runAnalysis = True
-   runRegression = True
+Repository has been renamed from "Assignment 1" to "Submissions" as it will contain all 6020 materials.
