@@ -1,0 +1,16 @@
+Q1: Under "Inverse of Transpose of A:" the last step needs work. In particular, you need to show that (I-B)^{-1} commutes with (I+B). Similarly, I do not understand the first step under "Transpose of A dot A:" (BTW please number the equations going forward!).
+Q2: "choose k=1" is inaccurate. You cannot choose which vector element is greatest (in modulus). Instead, you can say "Without loss of generality, we assume the k=1." or you can avoid this altogether by workign with a v_{q} as the largest element ("q is the index of the element largest in modulus..."). Also, you were asked to provide examples of vectors for which each of the equalities hold, not to demonstrate the inequalities!
+Q3a: You stopped short of explaining how to compute the determinants of P^{-1}, L and U! This is the cruxus!
+Q3c: It is better to use matrix indices in your pseudo-code. This is unique. If you choose to use the indexing as it is in your code, the first integer used depends on the language (0 for C, C++ and Python, 1 for Matlab, Fortran).
+The line "mx - ith row - ith column" needs more explanation, this is not the regular "-".
+
+If a something depends on something through a power law, always use a double logarithmic scale so that you can see a straight line. For LUP the matrices you used were too small to clearly see the scaling - you would need to go to n=O(100) and, of course, that is impossible for the cofactor method. That would also allow you to see asignificant error.
+
+The third line under "Time Complexity Calculation:" for the cofactor expansion does not make sense. It is better to compute the number of FLOPs with a recurrence relation. I will show that in class.
+
+LaTeX remarks:
+* Always use the math font for math symbols. For instance: "$i=1$ \# Outer loop counter$ in the pseudo-code. Use single strings in the text as in "Here, $A_{\q}$ is the covariance matrix."
+
+Good code that is easy to run (just from the Linux command line).
+
+85/100

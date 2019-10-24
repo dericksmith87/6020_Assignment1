@@ -1,0 +1,471 @@
+%% LyX 2.3.3 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{wasysym}
+\usepackage{babel}
+\begin{document}
+\title{Assignment One}
+
+\maketitle
+MCSC 6020G
+
+Fall 2019
+
+Submitted by Derick Smith
+
+\part*{Question One:}
+
+\section*{Skew-symmetric Matrix B, $B^{T}=-B$.}
+
+\section*{a) Example 4x4.}
+
+\paragraph*{
+\[
+B=\left[\protect\begin{array}{cccc}
+0 & -1 & 2 & -3\protect\\
+1 & 0 & -4 & 5\protect\\
+-2 & 4 & 0 & 6\protect\\
+3 & -5 & 6 & 0
+\protect\end{array}\right]
+\]
+}
+
+\paragraph*{
+\[
+-B=\left[\protect\begin{array}{cccc}
+0 & 1 & -2 & 3\protect\\
+-1 & 0 & 4 & -5\protect\\
+2 & -4 & 0 & 6\protect\\
+-3 & 5 & -6 & 0
+\protect\end{array}\right]
+\]
+}
+
+\paragraph*{
+\[
+(-B)^{T}=\left[\protect\begin{array}{cccc}
+0 & -1 & 2 & -3\protect\\
+1 & 0 & -4 & 5\protect\\
+-2 & 4 & 0 & 6\protect\\
+3 & -5 & 6 & 0
+\protect\end{array}\right]
+\]
+}
+
+\section*{b) Show Orthogonality of $A=(\mathbb{I}+B)(\mathbb{I}-B)^{-1}$ with
+$B$ skew-symmetrix.}
+
+$A:=(I+B)(I-B)^{-1}$\\
+\\
+
+Inverse of A:
+
+\begin{alignat*}{2}
+A^{-1} & = &  & \left[(I+B)(I-B)^{-1}\right]^{-1}\\
+ & = &  & (I-B)(I+B)^{-1}
+\end{alignat*}
+
+Transpose of A:
+
+\begin{alignat*}{2}
+A^{T} & = &  & \left[(I+B)(I-B)^{-1}\right]^{T}\\
+ & = &  & \left[(I-B)^{T}\right]^{-1}(I+B)^{T}\\
+ & = &  & (I+B)^{-1}(I-B)
+\end{alignat*}
+
+Inverse of Transpose of A:
+
+\begin{alignat*}{2}
+\left[A^{T}\right]^{-1} & = &  & \left[(I+B)^{-1}(I-B)\right]^{-1}\\
+ & = &  & (I-B)^{-1}(I+B)\\
+ & = &  & A
+\end{alignat*}
+
+Transpose of A dot A:
+
+\begin{alignat*}{2}
+A^{T}A & = &  & (I+B)^{-1}(I-B)(I-B)^{-1}(I+B)\\
+ & = &  & (I+B)^{-1}(I)(I+B)\\
+ & = &  & (I+B)^{-1}(I+B)\\
+ & = &  & I
+\end{alignat*}
+
+
+\part*{Question Two:}
+
+\subsection*{Prove $\frac{1}{n}\left\Vert v\right\Vert _{1}\protect\leq\left\Vert v\right\Vert _{\infty}\protect\leq\left\Vert v\right\Vert _{2}$,
+$v\in\mathbb{C^{\text{n}}}$:\protect \\
+\protect \\
+$\forall k$, $v_{k}=a_{k}+b_{k}i$, where, $\{a_{k},b_{k}\}\in\mathbb{R}$,\protect \\
+}
+
+\subsection*{and $\left|v_{k}\right|=\left[\overline{v}_{k}\cdot v_{k}\right]^{\frac{1}{2}}=\left[(a_{k}-b_{k}i)\cdot(a_{k}+b_{k}i)\right]^{\frac{1}{2}}=\left(a_{k}^{2}+b_{k}^{2}\right)^{\frac{1}{2}}$\protect \\
+\protect \\
+}
+
+\subsection*{Prove $\frac{1}{n}\left\Vert v\right\Vert _{1}\protect\leq\left\Vert v\right\Vert _{\infty}$:}
+
+With $\left\Vert v\right\Vert _{\infty}=\underset{\forall k}{max}\left|v_{k}\right|$
+choose $k=1$ so $\left\Vert v\right\Vert _{\infty}=\left|v_{1}\right|=\left(a_{1}^{2}+b_{1}^{2}\right)^{\frac{1}{2}}$,\\
+
+where, $\forall k$, $\left(a_{k}^{2}+b_{k}^{2}\right)^{\frac{1}{2}}\leq\left(a_{1}^{2}+b_{1}^{2}\right)^{\frac{1}{2}}$\\
+
+\begin{alignat*}{2}
+\left(a_{1}^{2}+b_{1}^{2}\right)^{\frac{1}{2}} & \leq &  & \left(a_{1}^{2}+b_{1}^{2}\right)^{\frac{1}{2}}\\
+\left(a_{1}^{2}+b_{1}^{2}\right)^{\frac{1}{2}}+\left(a_{2}^{2}+b_{2}^{2}\right)^{\frac{1}{2}} & \leq &  & 2\cdot\left(a_{1}^{2}+b_{1}^{2}\right)^{\frac{1}{2}}\\
+ & \vdots\\
+\sum_{k=1}^{n}\left(a_{k}^{2}+b_{k}^{2}\right)^{\frac{1}{2}} & \leq &  & n\cdot\left(a_{1}^{2}+b_{1}^{2}\right)^{\frac{1}{2}}\\
+\frac{1}{n}\sum_{k=1}^{n}\left(a_{k}^{2}+b_{k}^{2}\right)^{\frac{1}{2}} & \leq &  & \left(a_{1}^{2}+b_{1}^{2}\right)^{\frac{1}{2}}\\
+\\
+\\
+\frac{1}{n}\left\Vert v\right\Vert _{1} & \leq &  & \left\Vert v\right\Vert _{\infty}.
+\end{alignat*}
+\\
+\\
+
+
+\subsection*{\newpage Prove $\left\Vert v\right\Vert _{\infty}\protect\leq\left\Vert v\right\Vert _{2}$:}
+
+With $\left\Vert v\right\Vert _{\infty}=\underset{\forall k}{max}\left|v_{k}\right|$
+choose $k=1$ so $\left\Vert v\right\Vert _{\infty}=\left|v_{1}\right|=\left(a_{1}^{2}+b_{1}^{2}\right)^{\frac{1}{2}}$,
+
+and $\left\Vert v\right\Vert _{2}=\left[\sum_{k=1}^{n}\left(\overline{v}_{k}\cdot v_{k}\right)\right]^{\frac{1}{2}}=\left[\sum_{k=1}^{n}\left(a_{k}^{2}+b_{k}^{2}\right)\right]^{\frac{1}{2}}$,
+
+\begin{alignat*}{3}
+0 &  & \le &  &  & \sum_{k=2}^{n}\left(a_{k}^{2}+b_{k}^{2}\right)\\
+0 &  & \le &  &  & \left[\sum_{k=2}^{n}\left(a_{k}^{2}+b_{k}^{2}\right)\right]+\left(a_{1}^{2}+b_{1}^{2}\right)-\left(a_{1}^{2}+b_{1}^{2}\right)\\
+0 &  & \le &  &  & \left[\sum_{k=1}^{n}\left(a_{k}^{2}+b_{k}^{2}\right)\right]-\left(a_{1}^{2}+b_{1}^{2}\right)\\
+\left(a_{1}^{2}+b_{1}^{2}\right) &  & \leq &  &  & \sum_{k=1}^{n}\left(a_{k}^{2}+b_{k}^{2}\right)\\
+\left(a_{1}^{2}+b_{1}^{2}\right)^{\frac{1}{2}} &  & \leq &  &  & \left[\sum_{k=1}^{n}\left(a_{k}^{2}+b_{k}^{2}\right)\right]^{\frac{1}{2}}\\
+\\
+\\
+\left\Vert v\right\Vert _{\infty} &  & \leq &  &  & \left\Vert v\right\Vert _{2}.
+\end{alignat*}
+\\
+
+Therefore,
+
+\subsection*{
+\[
+\frac{1}{n}\left\Vert v\right\Vert _{1}\protect\leq\left\Vert v\right\Vert _{\infty}\protect\leq\left\Vert v\right\Vert _{2}.\qquad\qquad\qquad\qquad\qquad\Square
+\]
+\protect \\
+\protect \\
+\newpage Example:}
+
+$v=\left\{ (1+2i),(3+4i),(5+6i)\right\} $\\
+\\
+For $\frac{1}{n}\left\Vert v\right\Vert _{1}\leq\left\Vert v\right\Vert _{\infty}$:
+
+\begin{alignat*}{2}
+\frac{1}{3}\left(\left[(1-2i)(1+2i)\right]^{\frac{1}{2}}+\left[(3-4i)(3+4i)\right]^{\frac{1}{2}}+\left[(5-6i)(5+6i)\right]^{\frac{1}{2}}\right) & \leq &  & \left[(5+6i)(5+6i)\right]^{\frac{1}{2}}\\
+\frac{1}{3}\left[(1+2^{2})^{\frac{1}{2}}+(3^{3}+4^{2})^{\frac{1}{2}}+(5^{2}+6^{2})^{\frac{1}{2}}\right] & \leq &  & (5^{2}+6^{2})^{\frac{1}{2}}\\
+(1+2^{2})^{\frac{1}{2}}+(3^{3}+4^{2})^{\frac{1}{2}}+(5^{2}+6^{2})^{\frac{1}{2}} & \leq &  & 3\cdot(5^{2}+6^{2})^{\frac{1}{2}}\\
+(1+2^{2})^{\frac{1}{2}}+(3^{3}+4^{2})^{\frac{1}{2}} & \leq &  & 2\cdot(5^{2}+6^{2})^{\frac{1}{2}}.
+\end{alignat*}
+\\
+For $\left\Vert v\right\Vert _{\infty}\leq\left\Vert v\right\Vert _{2}$:
+
+\begin{alignat*}{2}
+\left[(5+6i)(5+6i)\right]^{\frac{1}{2}} & \leq &  & \left[(1-2i)(1+2i)+(3-4i)(3+4i)+(5-6i)(5+6i)\right]^{\frac{1}{2}}\\
+(5^{2}+6^{2})^{\frac{1}{2}} & \leq &  & \left[(1+2^{2})+(3^{3}+4^{2})+(5^{2}+6^{2})\right]^{\frac{1}{2}}\\
+(5^{2}+6^{2}) & \leq &  & (1+2^{2})+(3^{3}+4^{2})+(5^{2}+6^{2})\\
+0 & \leq &  & (1+2^{2})+(3^{3}+4^{2}).
+\end{alignat*}
+\\
+\\
+
+
+\part*{\newpage Question Three:}
+
+\subsection*{(a) How to Compute det(A) from LUP Factorization.}
+
+The determinant of A can be found by the product of the determinants
+of its decomposed matrices, i.e.\\
+\[
+PA=LU
+\]
+
+\[
+A=P^{-1}LU
+\]
+
+\[
+det(A)=det(P^{-1})\cdot det(L)\cdot det(U).
+\]
+
+
+\subsection*{(b) LUP det(A) Pseudo-code.}
+
+Matrix A = mxA has dimensions n by n. Matrix U = mxU deep copy of
+mxA. Matrix L = mxL is n by n identity matrix. 
+\begin{itemize}
+\item pSwaps = 0 \# used for determinant of P
+\item i = 0 \# outer loop counter
+\item While i < (n-1):
+\begin{itemize}
+\item Search mxU for row with largest nonzero absolute leading element for
+ith column
+\item If larger than current ith row:
+\begin{itemize}
+\item Swap those rows
+\item pSwaps++
+\end{itemize}
+\item l = i + 1 \# inner loop counter
+\item While l < n:
+\begin{itemize}
+\item mxL{[}l, i{]} = mxU{[}l, i{]} / mxU{[}i, i{]} 
+\item mxU{[}l,{]} = mxU{[}l,{]} - mxL{[}l, i{]} {*} mxU{[}i,{]}
+\item l++
+\end{itemize}
+\item i++
+\end{itemize}
+\item i = 0 \# reset counter
+\item mxAdet = (-1)\textasciicircum pSwaps \# this is equivalent to det(P\textasciicircum -1)
+\item While i < n:
+\begin{itemize}
+\item mxDetA = mxDetA {*} mxU{[}i,i{]}
+\item i++
+\end{itemize}
+\item Return mxDetA
+\end{itemize}
+
+\subsection*{(c) CoFactor det(A) Pseudo-code.}
+
+Matrix A = mxA has dimensions n by n.\\
+
+Define function CofactorDet(mx):
+\begin{itemize}
+\item n = length of mx
+\item If n == 1: return mx{[}0,0{]}
+\item If n==2: return mx{[}0, 0{]} {*} mx{[}1, 1{]} - mx{[}1, 0{]} {*} mx{[}0,
+1{]}
+\item mxDet = 0 \# to be accumulated throughout regressive algorithm
+\item i = 0 \# loop counter
+\item While i < n:
+\begin{itemize}
+\item tempMx = mx - ith row - ith column\\
+\# temporary matrix cofactor 
+\item mxDet = MxDet + (-1)\textasciicircum (i) {*} mx{[}i,0{]} {*} CofactorDet(tempMx)
+\\
+\# recursive call
+\end{itemize}
+\item return mxDet
+\end{itemize}
+
+\subsection*{(d) Test Algorithms for Time and Error.}
+
+Notes: 
+\begin{enumerate}
+\item See files for scripts. 
+\item Both methods errors were calculated individually compared to their
+difference (absolute and relative) to Python's Numpy linear algebra
+function det().
+\item Python standard library function time.clock() was tracked before and
+after each method call, including Python's det().
+\item Each method was computed 50 times at each dimension, from n=2 to n=11.
+Their mean and standard deviation for time and error were then computed
+for analysis.
+\item Testing beyond n=11 was not feasible without a more powerful computer.
+The CoFactor recursive method processing time is not polynomial.
+\end{enumerate}
+
+\subsubsection*{\newpage (i) LUP Method.}
+
+\paragraph*{Time:}
+
+\subparagraph*{The time taken by the LUP method was super linearly with the increase
+in matrix dimension.\protect \\
+\protect \\
+Table 1: LUP Det(mxA) Time}
+
+\[
+\begin{array}{ccccc}
+\text{n} & \quad & \mu & \quad & \sigma\\
+2 &  & 7.7608\cdot10^{-4} &  & 1.367747\cdot10^{-4}\\
+3 &  & 7.3372\cdot10^{-4} &  & 8.63071352786121\cdot10^{-5}\\
+4 &  & 7.8406\cdot10^{-4} &  & 1.332449\cdot10^{-4}\\
+5 &  & 7.7188\cdot10^{-4} &  & 4.85240723765062\cdot10^{-5}\\
+6 &  & 7.8668\cdot10^{-4} &  & 2.79295112739264\cdot10^{-5}\\
+7 &  & 8.4252\cdot10^{-4} &  & 3.6811\cdot10^{-5}\\
+8 &  & 9.5012\cdot10^{-4} &  & 1.048978\cdot10^{-4}\\
+9 &  & 9.6452\cdot10^{-4} &  & 3.21124524130671\cdot10^{-5}\\
+10 &  & 1.03284\cdot10^{-3} &  & 1.147178\cdot10^{-4}\\
+11 &  & 1.08\cdot10^{-3} &  & 1.997\cdot10^{-4}
+\end{array}
+\]
+
+
+\subparagraph{Plot 1: LUP Det(mA) Log(Time)}
+
+\subparagraph*{\protect\includegraphics[scale=0.5]{LUP_TimePerN}}
+
+\paragraph*{\newpage Error:}
+
+\subparagraph*{Table 2: LUP Det(mxA) Error}
+
+\[
+\begin{array}{ccccc}
+\text{n} & \quad & \mu & \quad & \sigma\\
+2 &  & 1.50272219720192\cdot10^{-16} &  & 1.68254760626659\cdot10^{-16}\\
+3 &  & 1.41076335325028\cdot10^{-15} &  & 3.59600036074122\cdot10^{-15}\\
+4 &  & 6.62001749035301\cdot10^{-16} &  & 1.13693313632224\cdot10^{-15}\\
+5 &  & 1.40118844089626\cdot10^{-15} &  & 3.33296631257066\cdot10^{-15}\\
+6 &  & 1.59773540700325\cdot10^{-15} &  & 2.77370625824385\cdot10^{-15}\\
+7 &  & 2.80480124651704\cdot10^{-15} &  & 7.6498009965789\cdot10^{-15}\\
+8 &  & 2.41997718548759\cdot10^{-15} &  & 4.18019888960937\cdot10^{-15}\\
+9 &  & 3.42766999183274\cdot10^{-15} &  & 4.74788735226157\cdot10^{-15}\\
+10 &  & 6.57323839705876\cdot10^{-15} &  & 2.43972206315903\cdot10^{-14}\\
+11 &  & 1.50681037874643\cdot10^{-14} &  & 6.6924959307498\cdot10^{-14}
+\end{array}
+\]
+
+
+\subparagraph*{Plot 2: LUP Det(mA) Log(Error)}
+
+\subparagraph*{\protect\includegraphics[scale=0.5]{LUP_ErrorPerN}}
+
+\subsubsection*{\newpage (ii) CoFactor Method.}
+
+\paragraph*{Time:}
+
+\subparagraph*{The time taken by the CoFactor method was super linearly with the
+increase in matrix dimension. Significantly greater than that of the
+LUP method.\protect \\
+\protect \\
+Table 3: CoFactor Det(mxA) Time}
+
+\[
+\begin{array}{ccccc}
+\text{n} & \quad & \mu & \quad & \sigma\\
+2 &  & 1.92599999999983\cdot10^{-4} &  & 1.35262707351354\cdot10^{-5}\\
+3 &  & 2.09400000000004\cdot10^{-4} &  & 5.88897274575044\cdot10^{-6}\\
+4 &  & 2.82459999999993\cdot10^{-4} &  & 3.15412174780973\cdot10^{-5}\\
+5 &  & 5.65819999999988\cdot10^{-4} &  & 1.04741395828176\cdot10^{-5}\\
+6 &  & 2.39327999999998\cdot10^{-3} &  & 1.22689044335656\cdot10^{-4}\\
+7 &  & 1.511576\cdot10^{-2} &  & 2.03081713603174\cdot10^{-4}\\
+8 &  & 1.2063036\cdot10^{-1} &  & 8.22970832046882\cdot10^{-4}\\
+9 &  & 1.09444122 &  & 1.70025335268485\cdot10^{-2}\\
+10 &  & 1.075855772\cdot10 &  & 1.55878988870087\cdot10^{-1}\\
+11 &  & 1.178086217\cdot10^{2} &  & 1.70881036448183
+\end{array}
+\]
+
+
+\subparagraph{Plot 3: CoFactor Det(mA) Log(Time)}
+
+\subparagraph*{\protect\includegraphics[scale=0.5]{CoFactor_TimePerN}}
+
+\paragraph*{\newpage Error:}
+
+\subparagraph{Table 4: CoFactor Det(mxA) Error}
+
+\[
+\begin{array}{ccccc}
+\text{n} & \quad & \mu & \quad & \sigma\\
+2 &  & 1.74415463563628\cdot10^{-16} &  & 1.86552669289415\cdot10^{-16}\\
+3 &  & 9.48439476322332\cdot10^{-16} &  & 2.40923167145667\cdot10^{-15}\\
+4 &  & 6.81226180835024\cdot10^{-16} &  & 1.39005207862167\cdot10^{-15}\\
+5 &  & 1.90477954432557\cdot10^{-15} &  & 4.11598371212702\cdot10^{-15}\\
+6 &  & 3.22487255952488\cdot10^{-15} &  & 1.08645960672825\cdot10^{-14}\\
+7 &  & 2.87690455913454\cdot10^{-15} &  & 8.44074884558458\cdot10^{-15}\\
+8 &  & 4.42657293356288\cdot10^{-15} &  & 1.17148268098084\cdot10^{-14}\\
+9 &  & 9.81864615141008\cdot10^{-15} &  & 2.05052323312052\cdot10^{-14}\\
+10 &  & 9.31015858251381\cdot10^{-15} &  & 3.46051259145651\cdot10^{-14}\\
+11 &  & 1.33660410213406\cdot10^{-14} &  & 2.81812201167862\cdot10^{-14}
+\end{array}
+\]
+
+
+\subparagraph*{Plot 4: CoFactor Det(mA) Log(Error)}
+
+\subparagraph*{\protect\includegraphics[scale=0.5]{CoFactor_ErrorPerN}}
+
+\subsubsection*{\newpage (iii) Numpy det() Method.}
+
+Note: Error is not provided as this method was used as the measuring
+stick which the others were compared with.
+
+\paragraph*{Time:}
+
+\subparagraph*{The time taken for Python's Numpy library was significantly less
+than both of the other methods.\protect \\
+\protect \\
+Table 5: Numpy det(mxA) Time}
+
+\[
+\begin{array}{ccccc}
+\text{n} & \quad & \mu & \quad & \sigma\\
+2 &  & 2.02980000000008\cdot10^{-4} &  & 1.04335804017675\cdot10^{-5}\\
+3 &  & 1.95579999999986\cdot10^{-4} &  & 8.66507934181306\cdot10^{-6}\\
+4 &  & 2.03359999999986\cdot10^{-4} &  & 1.76269793214748\cdot10^{-5}\\
+5 &  & 1.99019999999988\cdot10^{-4} &  & 8.25709391978144\cdot10^{-6}\\
+6 &  & 1.98859999999992\cdot10^{-4} &  & 7.09086736585715\cdot10^{-6}\\
+7 &  & 2.07879999999978\cdot10^{-4} &  & 1.07733745873911\cdot10^{-5}\\
+8 &  & 2.24959999999932\cdot10^{-4} &  & 7.15251004886503\cdot10^{-6}\\
+9 &  & 2.26840000000017\cdot10^{-4} &  & 5.44558536817928\cdot10^{-6}\\
+10 &  & 2.29580000000738\cdot10^{-4} &  & 1.46056016684742\cdot10^{-5}\\
+11 &  & 2.44439999983115\cdot10^{-4} &  & 6.44574775485059\cdot10^{-5}
+\end{array}
+\]
+
+
+\subparagraph*{Plot 5: Numpy det(mA) Log(Time)}
+
+\subparagraph{\protect\includegraphics[scale=0.5]{LUP(py)_TimePerN}}
+
+\subsection*{(e) Time Complexities.}
+
+\subsubsection*{(i) LUP Method Time Complexity.}
+
+As discussed in lecture the time complexity of $O(n^{3})$. Flops
+of the Python script for this method are annotated in the comments.
+
+\subparagraph*{Time Complexity Calculation:}
+
+\begin{alignat*}{2}
+T(n) &  & = & n+\sum_{i=1}^{n-1}\left(n-1+6n+\sum_{k=1}^{i}\left(n+1\right)\right)\\
+ &  & = & n+\sum_{i=1}^{n-1}\left(7n-1+\left(n+1\right)\cdot\sum_{k=1}^{i}1\right)\\
+ &  & = & n+\sum_{i=1}^{n-1}\left(7n-1+\left(n+1\right)\cdot i\right)\\
+ &  & = & n+(n-1)(7n-1)+\left(n+1\right)\cdot\sum_{i=1}^{n-1}i\\
+ &  & = & n+7n^{2}-8n+1+(n+1)\left(\dfrac{(n-1)(n-2)}{2}\right)\\
+ &  & = & 7n^{2}-7n+1+(n+1)\left(\dfrac{n^{2}-3n+2}{2}\right)\\
+ &  & = & 7n^{2}-7n+1+\left(\dfrac{n^{3}-3n^{2}-n+2}{2}\right)\\
+ &  & = & \frac{1}{2}\left(n^{3}+11n^{2}-15n+4\right)\\
+ &  & = & O(n^{3})
+\end{alignat*}
+
+
+\subsubsection*{\newpage (ii) CoFactor Method Time Complexity.}
+
+Flops of the Python script for this method are annotated in the comments.
+
+\subparagraph*{Time Complexity Calculation:}
+
+\begin{alignat*}{2}
+T(n) &  & = & \sum_{i=1}^{n}\left(\sum_{i=1}^{n-1}\left(\cdots\left(\sum_{i=1}^{2}\left(\sum_{i=1}^{1}\left(4\right)\right)\right)\cdots\right)\right)\\
+ &  & = & 4\cdot\sum_{i=1}^{n}\left(\sum_{i=1}^{n-1}\left(\cdots\left(\sum_{i=1}^{2}\left(\sum_{i=1}^{1}\left(1\right)\right)\right)\cdots\right)\right)\\
+ &  & = & 4\cdot\prod_{i}^{n}\left(1\right)\\
+ &  & = & 4n!\\
+ &  & = & O(n!)
+\end{alignat*}
+\\
+
+This does verify that the datasets and graphs make sense per method.\\
+
+
+\subsubsection*{(iii) Accuracy.}
+
+From Table 2, Plot 2, Table 4, and Plot 4, there does not appear to
+be a substantial difference between the two methods levels of accuracy.
+At each dimension each methods average relative errors are within
+the others mean plus or minus three standard deviations. Without more
+rigorous analysis, it does appear likely that it would fail to reject
+the null hypothesis test that $\mu_{lup}=\mu_{co}$. That being said,
+neither seems to be significantly more accurate than the other.
+\end{document}
