@@ -1,0 +1,13 @@
+Comments about the presentation:
+* The pseudo-codes can be typeset more clearly, e.g. with flow charts, indentation, different types of labeling of steps, et cetera. Also, you should add a clear list of input variables and parameters and stopping criteria to each.
+* It seemed like to did not rehearse the presentation as you kept second-guessing yourself and digressing. They to think of making a presentation as an iterative process. You completed the first iteration, but when rehearsing you would have found that some information you needed to convey was missing from the slides. Then you would have included it, re-considered the structure and length and rehearsed again - and so forth until convergence.
+* The illustrations were really good.
+
+Some comments from your peers:
+* Try to answer the questions more concisely.
+* Plan and rehearse your presentation better.
+* You spent too much time on the white board, perhaps material was missing from the slides.
+* Some figures missed legends/labels.
+* Very good illustrations (GIFs).
+
+75/100
