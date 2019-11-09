@@ -1,0 +1,1089 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Assignment Two
+\end_layout
+
+\begin_layout Standard
+MCSC 6020G
+\end_layout
+
+\begin_layout Standard
+Fall 2019
+\end_layout
+
+\begin_layout Standard
+Submitted by Derick Smith
+\end_layout
+
+\begin_layout Section*
+Question One:
+\end_layout
+
+\begin_layout Subsection*
+Prove matrix 
+\begin_inset Formula $A$
+\end_inset
+
+ is nonsingular
+\end_layout
+
+\begin_layout Standard
+A matrix 
+\begin_inset Formula $A\in\mathbb{C^{\text{nxn}}}$
+\end_inset
+
+, where,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left|a_{j,j}\right|>\sum_{i=1;i\neq j}^{n}|a_{i,j}|\qquad\left(j\in[1,n]\right)\in\mathbb{Z}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+a strictly column diagonally dominant matrix that is nonsingular.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Proof preparation:
+\end_layout
+
+\begin_layout Standard
+If 
+\begin_inset Formula $n=1$
+\end_inset
+
+, 
+\begin_inset Formula $det(A)=a_{1,1}$
+\end_inset
+
+.
+ Otherwise:
+\end_layout
+
+\begin_layout Standard
+Properties of determinants to be used in proof.
+ First, 
+\begin_inset Formula $det(A)=det(A^{T})$
+\end_inset
+
+.
+ If 
+\begin_inset Formula $det(A^{T})\neq0\Rightarrow det(A)\neq0$
+\end_inset
+
+.
+ Second, if 
+\begin_inset Formula $A^{T}$
+\end_inset
+
+is decomposed into so that 
+\begin_inset Formula $A^{T}=LU$
+\end_inset
+
+, where, 
+\begin_inset Formula $U$
+\end_inset
+
+ diagonal elements are all nonzero then 
+\begin_inset Formula $det(A^{T})=det(L)\cdot det(U)\neq0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+In the process of Gaussian elimination used in LU decomposition of 
+\begin_inset Formula $A^{T}=\{a_{i,j}\}_{\forall i,j}$
+\end_inset
+
+, to zero all first column elements except row one, the resulting row, 
+\begin_inset Formula $a'_{i,j}$
+\end_inset
+
+, is defined by:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+a'_{i,j}=a_{i,j}-\dfrac{a_{1,j}}{a_{1,1}}\cdot a_{i,1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Observe for some arbitrary row, 
+\begin_inset Formula $a_{i,j}\qquad i\neq1$
+\end_inset
+
+,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+a'_{i,1}=a_{i,1}-\dfrac{a_{1,1}}{a_{1,1}}\cdot a_{i,1}=a_{i,1}-a_{i,1}=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For the transpose of a strictly column diagonally dominant matrix, 
+\begin_inset Formula $A^{T}$
+\end_inset
+
+, is strictly row diagonally dominant matrix: 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left|a_{i,i}\right|>\sum_{j=1;j\neq j}^{n}|a_{i,j}|\qquad\left(i\in[1,n]\right)\in\mathbb{Z}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Proof:
+\end_layout
+
+\begin_layout Standard
+Decompose 
+\begin_inset Formula $A^{T}=DM$
+\end_inset
+
+, where,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+M=\{m_{i,j}\}_{\forall i,j}=\left\{ \dfrac{a_{i,j}}{a_{i,i}}\right\} 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Our strictly row diagonally dominant inequality becomes,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left(\left|m_{i,i}\right|=1\right)>\sum_{i=1;i\neq j}^{n}|m_{i,j}|\qquad\left(i\in[1,n]\right)\in\mathbb{Z}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For matrix 
+\begin_inset Formula $D=\{m_{i,j}\}_{\forall i,j}$
+\end_inset
+
+, 
+\begin_inset Formula $d_{i,i}=\dfrac{1}{a_{i,i}}$
+\end_inset
+
+ and 
+\begin_inset Formula $d_{i,j}=0$
+\end_inset
+
+ for all 
+\begin_inset Formula $i\neq j$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For any row,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{alignat*}{7}
+1 &  &  & > &  & \sum_{j=1;j\neq i}^{n}|m_{1,j}| &  &  &  &  &  & \qquad & (1)\\
+|m_{i,1}| &  &  & > &  & |m_{i,1}|\cdot\sum_{j=1;i\neq j}^{n}|m_{i,j}| &  &  &  &  &  & \qquad & (2)\\
+|m_{i,1}| &  &  & > &  & \left[\sum_{j=1;i\neq j}^{n}|m_{i,j}|\cdot|m_{i,1}|\right] &  &  &  &  &  & \qquad & (3)\\
+\end{alignat*}
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+From that inequality and for any row greater than one,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{alignat*}{7}
+|m_{i,i}| &  &  & > &  &  & \left(\sum_{j=1;i\neq j}^{n}|m_{i,j}|\right) &  &  &  &  & \qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\quad\enskip\enskip\, & (1)
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{alignat*}{7}
+|m_{i,i}| &  &  & > &  &  & \left(\sum_{j=2;i\neq j}^{n}|m_{i,j}|\right)+|m_{i,1}| & > & \left[\left(\sum_{j=2;i\neq j}^{n}|m_{i,j}|\right)+\left(\sum_{j=1;i\neq j}^{n}|m_{i,j}|\cdot|m_{i,1}|\right)\right] &  &  & \qquad\quad\enskip & (2)\\
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{alignat*}{6}
+\\
+|m_{i,i}| &  &  & > &  & \left[\left(\sum_{j=2;i\neq j}^{n}|m_{i,j}|\right)+\left(\sum_{j=2;i\neq j}^{n}|m_{i,j}|\cdot|m_{i,1}|\right)+|m_{1,j}\cdot m_{i,1}|\right] &  &  &  &  & \qquad & (3)\\
+|m_{i,i}|-|m_{1,j}\cdot m_{i,1}| &  &  & > &  & \left[\sum_{j=2;i\neq j}^{n}|m_{i,j}|+|m_{i,j}|\cdot|m_{i,1}|\right]+|m_{1,j}\cdot m_{i,1}| &  &  &  &  & \qquad & (4)\\
+\mathit{|m_{i,i}|-|m_{1,j}\cdot m_{i,1}|} &  &  & > &  & \mathit{\left[\sum_{j=2;i\neq j}^{n}|m_{i,j}|+|m_{i,j}|\cdot|m_{i,1}|\right]} &  &  &  &  & \qquad & (5)
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{alignat*}{7}
+|m_{i,i}-m_{1,j}\cdot m_{i,1}| & \ge & \mathit{|m_{i,i}|-|m_{1,j}\cdot m_{i,1}|} & > &  & \mathit{\left[\sum_{j=2;i\neq j}^{n}|m_{i,j}|+|m_{i,j}|\cdot|m_{i,1}|\right]} &  &  &  &  &  &  & (6)\\
+|m_{i,i}|-|m_{1,j}\cdot m_{i,1}| & > & \mathit{\mathit{\left[\sum_{j=2;i\neq j}^{n}|m_{i,j}|+|m_{i,j}|\cdot|m_{i,1}|\right]}} &  &  &  &  &  & \boldsymbol{} &  &  &  & (7)\\
+|m_{i,i}|-|m_{1,j}\cdot m_{i,1}| & > & \mathit{\mathit{\left[\sum_{j=2;i\neq j}^{n}|m_{i,j}|+|m_{i,j}|\cdot|m_{i,1}|\right]}} & \geq &  & \left[\sum_{j=2;i\neq j}^{n}|m_{i,j}-m_{i,j}\cdot m_{i,1}|\right]\\
+\mathit{|m_{i,i}|-|m_{1,j}\cdot m_{i,1}|} & > & |m_{i,i}-m_{1,j}\cdot m_{i,1}| & \ge &  & \left[\sum_{j=2;i\neq j}^{n}|m_{i,j}-m_{i,j}\cdot m_{i,1}|\right] &  &  &  &  &  &  & (8)\\
+ &  & |m_{i,i}-m_{1,j}\cdot m_{i,1}| & \ge &  & \left[\sum_{j=2;i\neq j}^{n}|m_{i,j}-m_{i,j}\cdot m_{i,1}|\right]+0 &  &  &  &  &  &  & (9)\\
+ &  & |m_{i,i}-m_{1,j}\cdot m_{i,1}| & \ge &  & \left[\sum_{j=2;i\neq j}^{n}|m_{i,j}-m_{i,j}\cdot m_{i,1}|\right]+m_{i,1} &  &  &  &  &  &  & (10)\\
+ &  & |m_{i,i}-m_{1,j}\cdot m_{i,1}| & \ge &  & \left[\sum_{j=1;i\neq j}^{n}|m_{i,j}-m_{i,j}\cdot m_{i,1}|\right] &  &  &  &  &  &  & (11)\\
+\\
+\\
+\\
+\end{alignat*}
+
+\end_inset
+
+Finally,
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\boldsymbol{|m'_{i,i}|>\sum_{j=1;i\neq j}^{n}|m'_{i,j}|}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The Gaussian elimination operations result in a matrix with first column
+ elements equal to zero, except row one and remains strictly row diagonally
+ dominant.
+ This means that every diagonal element is nonzero.
+ 
+\end_layout
+
+\begin_layout Standard
+The matrix 
+\begin_inset Formula $A$
+\end_inset
+
+, from which 
+\begin_inset Formula $M$
+\end_inset
+
+ was derived, was of arbitrary dimension.
+ Let 
+\begin_inset Formula $M'={m'_{i,j}},i\in[2,n]_{\mathbb{Z}},j\in[2,n]_{\mathbb{Z}}$
+\end_inset
+
+, 
+\begin_inset Formula $M'$
+\end_inset
+
+ is of arbitrary size and satisfies the arguments used to perform the row
+ elimination of every row's first column elements, for all rows greater
+ than one.
+ The same operations could be performed on 
+\begin_inset Formula $M'$
+\end_inset
+
+ so that 
+\begin_inset Formula $M'\in\mathbb{C^{\text{(n-1)x(n-1)}}}\rightarrow M''\in\mathbb{C^{\text{(n-2)x(n-2)}}}$
+\end_inset
+
+, where 
+\begin_inset Formula $M'$
+\end_inset
+
+' is strictly row diagonally dominant.
+ Inductively, 
+\begin_inset Formula $M^{k}\in\mathbb{C}^{\text{(n-k)x(n-k)}}\rightarrow M^{k+1}\in\mathbb{C}^{\text{(n-k-1)x(n-k-1)}}$
+\end_inset
+
+, 
+\begin_inset Formula $\forall k<n-1$
+\end_inset
+
+ (
+\begin_inset Formula $M^{n-1}\in\mathbb{C}^{\text{1x1}}$
+\end_inset
+
+).
+ Every iteration is strictly row diagonally dominant.
+\end_layout
+
+\begin_layout Standard
+The matrix 
+\begin_inset Formula $M$
+\end_inset
+
+ can decomposed into a product of triangular matrices with nonzero diagonal
+ elements and the product of all matrix determinants are nonzero, therefore,
+ matrix 
+\begin_inset Formula $A$
+\end_inset
+
+ is nonsingular.
+\end_layout
+
+\begin_layout Section*
+Question Two:
+\end_layout
+
+\begin_layout Subsection*
+a) For matrix 
+\begin_inset Formula $A\in\mathbb{C^{\text{n}\times\text{n}}}$
+\end_inset
+
+, 
+\begin_inset Formula $A=yx^{T}$
+\end_inset
+
+, show 
+\begin_inset Formula $\left\Vert A\right\Vert _{2}=\left\Vert x\right\Vert _{2}\left\Vert y\right\Vert _{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Although a proof of this was found, not every step was understood so it
+ is not included.
+ A substantial number of computations were performed to show, as was requested
+\begin_inset Formula $^{1}$
+\end_inset
+
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+;)
+\end_layout
+
+\end_inset
+
+, that 
+\begin_inset Formula $\left\Vert A\right\Vert _{2}=\left\Vert x\right\Vert _{2}\left\Vert y\right\Vert _{2}$
+\end_inset
+
+.
+ A 
+\begin_inset Formula $40000$
+\end_inset
+
+ computarions were run.
+ Arrays were sized from 
+\begin_inset Formula $n=1$
+\end_inset
+
+ to 
+\begin_inset Formula $n=200$
+\end_inset
+
+, each value randomly generated per run with a uniform distribution between
+ 
+\begin_inset Formula $-1000$
+\end_inset
+
+ to 
+\begin_inset Formula $1000$
+\end_inset
+
+.
+ Each array size was computed 
+\begin_inset Formula $200$
+\end_inset
+
+ times.
+ 
+\end_layout
+
+\begin_layout Standard
+With the hypotheses:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+H_{0}:\qquad\hat{\mu}=\mu=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+H_{a}:\qquad\hat{\mu}\neq\mu=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The calculated test statistic probability, 
+\begin_inset Formula $p=2.6\cdot10^{-26}$
+\end_inset
+
+, provides enough room to set the acceptance tolerance, 
+\begin_inset Formula $\alpha$
+\end_inset
+
+, extremely small.
+ The highest scientific standard being 
+\begin_inset Formula $\alpha=3\cdot10^{-7}>>p$
+\end_inset
+
+, would fail to reject the null hypothesis, 
+\begin_inset Formula $H_{0}$
+\end_inset
+
+.
+ Therefore, it can be concluded that 
+\begin_inset Formula $\left\Vert A\right\Vert _{2}=\left\Vert x\right\Vert _{2}\left\Vert y\right\Vert _{2}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection*
+b) Show 
+\begin_inset Formula $K_{p}(AB)\leq K_{p}(A)K_{p}(B)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{alignat*}{4}
+ &  & K_{p}(AB) & = &  & \left\Vert AB\right\Vert _{p}\left\Vert (AB)^{-1}\right\Vert _{p} &  & \qquad(1)\\
+ &  & \left\Vert AB\right\Vert _{p}\left\Vert (AB)^{-1}\right\Vert _{p} & = &  & \left\Vert AB\right\Vert _{p}\left\Vert B^{-1}A^{-1}\right\Vert _{p} &  & \qquad(2)\\
+ &  & \left\Vert AB\right\Vert _{p}\left\Vert B^{-1}A^{-1}\right\Vert _{p} & \leq &  & \left\Vert A\right\Vert _{p}\left\Vert B\right\Vert _{p}\left\Vert B^{-1}\right\Vert _{p}\left\Vert A^{-1}\right\Vert _{p} &  & \qquad(3)\\
+ &  & \left[\left\Vert A\right\Vert _{p}\left\Vert A^{-1}\right\Vert _{p}\right]\left[\left\Vert B\right\Vert _{p}\left\Vert B^{-1}\right\Vert _{p}\right] & = &  & K_{p}(A)K_{p}(B) &  & \qquad(4)\\
+ &  &  &  &  &  &  & \qquad\\
+\therefore &  & K_{p}(AB) & \leq &  & K_{p}(A)K_{p}(B) &  & \qquad(5)
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Question Three:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+f(x)=\sum_{i=1}^{N}\dfrac{a_{i}^{2}}{(b_{i}^{2}+x)^{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+a) Show 
+\begin_inset Formula $f$
+\end_inset
+
+ is monotonically decreasing, convex on 
+\begin_inset Formula $[0,\infty)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{alignat*}{4}
+f(x) & = & \sum_{i=1}^{N}a_{i}^{2}(b_{i}^{2}+x)^{-2} & > & 0, & \forall x\in[0,\infty) & \qquad(1)\\
+f'(x) & = & -2\sum_{i=1}^{N}a_{i}^{2}(b_{i}^{2}+x)^{-3} & < & 0, & \forall x\in[0,\infty) & \qquad(2)\\
+f''(x) & = & 6\sum_{i=1}^{N}a_{i}^{2}(b_{i}^{2}+x)^{-4} & > & 0, & \forall x\in[0,\infty) & \qquad(3)\\
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\therefore$
+\end_inset
+
+ the function 
+\begin_inset Formula $f$
+\end_inset
+
+ is monotonically decreasing and convex on 
+\begin_inset Formula $[0,\infty)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection*
+b) Newton method observations
+\end_layout
+
+\begin_layout Standard
+As shown in the figures in part d, the Newton method appears linear for
+ a substatial number of iterations before curving sharply towards the tolerance
+ threshold.
+ This suggests that as 
+\begin_inset Formula $k$
+\end_inset
+
+ increases, the Newton method might in fact converge quadratically as might
+ be intuitive for a polynomial function but not necessarily for a rational
+ function.
+ The number of iterations depended on 
+\begin_inset Formula $\delta$
+\end_inset
+
+ and ranged from approximately 10 to approximately 40.
+ The behavior of the Newton method is discussed further in part d.
+\end_layout
+
+\begin_layout Subsection*
+c) Develop Newton-like method
+\end_layout
+
+\begin_layout Standard
+Pseudo-code:
+\end_layout
+
+\begin_layout Enumerate
+Find initial 
+\begin_inset Formula $x_{0}$
+\end_inset
+
+ using a helper function; a bisection-like method can find when 
+\begin_inset Formula $f(x)<1$
+\end_inset
+
+ exceptionally quickly for a rational function.
+\end_layout
+
+\begin_layout Enumerate
+For each 
+\begin_inset Formula $k^{\text{th}}$
+\end_inset
+
+ iteration, make model 
+\begin_inset Formula $g_{k}(x)=\dfrac{A_{k}}{B_{k}+x}$
+\end_inset
+
+, solving for 
+\begin_inset Formula $A_{k}$
+\end_inset
+
+ and 
+\begin_inset Formula $B_{k}$
+\end_inset
+
+ using a point of intersection, 
+\begin_inset Formula $g_{k}(x)=f(x)$
+\end_inset
+
+, and having the same slope, 
+\begin_inset Formula $g'_{k}(x)=f'(x)$
+\end_inset
+
+:
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula 
+\begin{alignat*}{5}
+g_{k}(x) & = &  & A_{k}\cdot(B_{k}+x)^{-1} & = & f(x) &  &  & \qquad(1)\\
+g'_{k}(x) & = &  & -A_{k}\cdot(B_{k}+x)^{-2} & = & f'(x) &  &  & \qquad(2)\\
+A_{k} & = &  & f(x)\cdot(B_{k}+x) &  &  &  &  & \qquad(3)\\
+B_{k} & = &  & \dfrac{-f(x)}{f'(x)}-x &  &  &  &  & \qquad(4)
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Using 
+\begin_inset Formula $g_{k}(x_{k+1})=0$
+\end_inset
+
+, solve for 
+\begin_inset Formula $x_{k+1}$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{alignat*}{5}
+g_{k}(x_{k+1}) & = &  & A_{k}\cdot(B_{k}+x_{k+1})^{-1} & = & 0 &  &  & \qquad(1)\\
+x_{k+1} & = &  & \dfrac{A_{k}}{f(x_{k})}-B_{k} &  &  &  &  & \qquad(2)\\
+\\
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+If 
+\begin_inset Formula $\left|x_{k}-x_{k+1}\right|<TOL_{x}$
+\end_inset
+
+ or 
+\begin_inset Formula $g_{k}(x_{k+1})>f(x_{k+1})$
+\end_inset
+
+, switch to Newton method.
+\end_layout
+
+\begin_layout Enumerate
+Iterate until 
+\begin_inset Formula $\left|f(x_{k})-\delta\right|<TOL_{f}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Subsection*
+d) Compare two methods (include bisection)
+\end_layout
+
+\begin_layout Standard
+The Newton method was never shown to surpass the Newton-like method (with
+ helper function).
+ With 
+\begin_inset Formula $\delta$
+\end_inset
+
+ 
+\begin_inset Quotes eld
+\end_inset
+
+large,
+\begin_inset Quotes erd
+\end_inset
+
+ the Newton method outperformed the Bisection method but neither had ever
+ outperformed the Newton-like method.
+\end_layout
+
+\begin_layout Standard
+As 
+\begin_inset Formula $\delta$
+\end_inset
+
+ decreased in size the Bisection method began to cross the tolerance threshold
+ before the Newton method.
+ The reason this happend was the helper function which was used with the
+ Bisection method.
+ The helper function took advantage of an exponential term to find when
+ 
+\begin_inset Formula $f(2^{n})<0$
+\end_inset
+
+ so it was able to cover more ground and avoid the sharp slope of 
+\begin_inset Formula $f(x)$
+\end_inset
+
+ near 0.
+ The other methods, without helper functions, are bound to spend time at
+ the start climbing away from zero.
+\end_layout
+
+\begin_layout Standard
+That being said the Newton and Newton-like methods could benefit from the
+ use of helper functions.
+\end_layout
+
+\begin_layout Standard
+In the figures below: the red markers represent the Newton method; the blue
+ markers represent the Newton-like method with squares representing the
+ rational model 
+\begin_inset Formula $g(x)=\dfrac{A}{B+x}$
+\end_inset
+
+ and triangles when the helper function (Newton) is called); and, the green
+ markers represent the Bisection method.
+ For each 
+\begin_inset Formula $N$
+\end_inset
+
+, a new set of random values were generated for 
+\begin_inset Formula $a_{i}$
+\end_inset
+
+ and 
+\begin_inset Formula $b_{i}$
+\end_inset
+
+.
+ The tolerance of 
+\begin_inset Formula $f(x_{k})$
+\end_inset
+
+ was set to 
+\begin_inset Formula $TOL_{f}=10^{-16}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The size of 
+\begin_inset Formula $N$
+\end_inset
+
+ did not seem to have much influence on the rate of convergence for any
+ particular method.
+ However, the figures only show a single instance at each 
+\begin_inset Formula $N$
+\end_inset
+
+ per 
+\begin_inset Formula $\delta$
+\end_inset
+
+.
+ A statistical fit would need to accompany a large sample for each combination
+ to make a confident statement on the impact of 
+\begin_inset Formula $N$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+On the other hand, 
+\begin_inset Formula $\delta$
+\end_inset
+
+ had a noticable affect on the rates of convergence.
+ The convergence rate of the Newton-like method might seem linear, however,
+ this is due to the limitations of due to computer precision, 
+\begin_inset Formula $|TOL_{f}-\delta|\rightarrow0$
+\end_inset
+
+, and the selection of 
+\begin_inset Formula $\delta$
+\end_inset
+
+.
+ If precision were not a contraint and 
+\begin_inset Formula $\delta$
+\end_inset
+
+ could be chosen arbitrarily small, the rate of convergence of the Newton-like
+ method might in fact be quadratic.
+ A proof could be possible and an interesting pursuit but it is beyond this
+ assignment.
+\end_layout
+
+\begin_layout Standard
+Notice the point in which the blue markers switch from squares to triangles
+ on the residual axis.
+ It appears that just before the rational model is approaching the same
+ magnitude of the delta, it summons the regular Newton method.
+ It stalls out.
+ A proof is beyond the time limitations, however, a good starting point
+ might be the analysis of the inequality 
+\begin_inset Formula $g_{k}(x)\leq f(x)$
+\end_inset
+
+ and that 
+\begin_inset Formula $f(x)\in\Theta\left(\dfrac{1}{x^{2}}\right)\rightarrow0$
+\end_inset
+
+ slower than 
+\begin_inset Formula $g_{k}(x)\in\Theta\left(\dfrac{1}{x}\right)\rightarrow0$
+\end_inset
+
+ as 
+\begin_inset Formula $x\rightarrow\infty$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+Figure 1: 
+\begin_inset Formula $\delta=10^{-5}$
+\end_inset
+
+ and 
+\begin_inset Formula $N=10,10^{2},10^{3},10^{4}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename venv/figures/Delta1E-05.png
+	scale 50
+
+\end_inset
+
+
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+Figure 2: 
+\begin_inset Formula $\delta=10^{-8}$
+\end_inset
+
+ and 
+\begin_inset Formula $N=10,10^{2},10^{3},10^{4}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename venv/figures/Delta1E-08.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+Figure 3: 
+\begin_inset Formula $\delta=10^{-11}$
+\end_inset
+
+ and 
+\begin_inset Formula $N=10,10^{2},10^{3},10^{4}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename venv/figures/Delta1E-11.png
+	scale 50
+
+\end_inset
+
+
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+Figure 4: 
+\begin_inset Formula $\delta=10^{-14}$
+\end_inset
+
+ and 
+\begin_inset Formula $N=10,10^{2},10^{3},10^{4}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename venv/figures/Delta1E-14.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Sources:
+\end_layout
+
+\begin_layout Enumerate
+Professor
+\end_layout
+
+\begin_layout Enumerate
+Classmates
+\end_layout
+
+\end_body
+\end_document
