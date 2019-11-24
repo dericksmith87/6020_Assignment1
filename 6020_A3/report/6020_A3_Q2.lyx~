@@ -1,0 +1,480 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Assignment Three
+\end_layout
+
+\begin_layout Standard
+MCSC 6020G
+\end_layout
+
+\begin_layout Standard
+Fall 2019
+\end_layout
+
+\begin_layout Standard
+Submitted by Derick Smith
+\end_layout
+
+\begin_layout Section*
+Question Two:
+\end_layout
+
+\begin_layout Subsection*
+(a) & (b) Implementation of Newton-like optimizer
+\end_layout
+
+\begin_layout Standard
+While experimenting with the helper function findXzero(), the classic Newton
+ method with findXzero() was found to be substantially faster than any other
+ combination.
+ This includes the Newton-like method with or without findXzero().
+\end_layout
+
+\begin_layout Standard
+The following are the frequency plots at the different combinations demonstratin
+g their overall efficiencies at various 
+\begin_inset Formula $\delta$
+\end_inset
+
+'s and number of 
+\begin_inset Formula $\sigma$
+\end_inset
+
+'s after 2000 iterations per combination.
+\end_layout
+
+\begin_layout Description
+Figure 2.a.1:
+\end_layout
+
+\begin_layout Description
+\begin_inset Graphics
+	filename figures/NC_findXzero.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+Figure 2.a.2:
+\end_layout
+
+\begin_layout Description
+\begin_inset Graphics
+	filename figures/NL_findXzero.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+Figure 2.a.3:
+\end_layout
+
+\begin_layout Description
+\begin_inset Graphics
+	filename figures/NC_x0zero.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+Figure 2.a.4:
+\end_layout
+
+\begin_layout Description
+\begin_inset Graphics
+	filename figures/NL_x0zero.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Under certain conditions, the Newton-like method can converge exceptionally
+ slowly or potentially not at all.
+ Because Newton-like can jump to the right by a large amount, there could
+ be cases where the next iteration 
+\begin_inset Formula $x_{k+1}$
+\end_inset
+
+ causes the 
+\begin_inset Formula $f'(x_{k+1})$
+\end_inset
+
+ to underflow a substantial portion of significant digits and a loss of
+ gaurenteed convergence.
+ Because of this, after ten iterations, if no convergence, Newton-classic
+ was summoned.
+\end_layout
+
+\begin_layout Standard
+Unfortunately, for the Newton-like method, even with this exception handling,
+ it did not perform nearly as well as Newton-classic with findXzero() so
+ it was scrapped.
+\end_layout
+
+\begin_layout Standard
+Since the Newton-classic with findXzero() converges faster than Newton-classic
+ on its own so it can be concluded that its convergences is also quadratic.
+ Plots of the residuals vs iterations in this instance are graphically useless
+ because the median case has two plot points nearly 
+\begin_inset Formula $90\%$
+\end_inset
+
+ of the time.
+ 
+\end_layout
+
+\begin_layout Standard
+Using finite difference approximations of derivatives does not change the
+ number of iterations for convergence in any method.
+ The frequency plots and residual plots are indistinguishable, however,
+ the computation time is noticably longer as a result of there being more
+ calculations required to approximate each tangent line per iteration.
+\end_layout
+
+\begin_layout Subsection*
+c) Exception handling
+\end_layout
+
+\begin_layout Standard
+As mentioned in part (a), the Newton-like method was scrapped so it requires
+ no exception handling.
+ If the trust region becomes too small, 
+\begin_inset Formula $\delta\leq\delta_{min}$
+\end_inset
+
+, the algorithm stops iterating as convergence may no longer be possible.
+\end_layout
+
+\begin_layout Standard
+In regards to runtime exception handling, functions prone to exceptions
+ are wrapped in try blocks.
+ There are two exceptions that are not caught, however, no exceptions cause
+ system crash.
+ Trying to log-scale negative values.
+ The other is a value error inside a few layers of python libraries and
+ throws an exception long before the main program frame, making it difficult
+ to catch.
+\end_layout
+
+\begin_layout Subsection*
+d) Test variations
+\end_layout
+
+\begin_layout Standard
+Create loops to vary number of equations (
+\begin_inset Formula $N$
+\end_inset
+
+), 
+\begin_inset Formula $\lambda$
+\end_inset
+
+'s, and initial conditions.
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+See code for variation of conditions
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The testing conditions for initial 
+\begin_inset Formula $x$
+\end_inset
+
+, 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+x=x_{0}=\{1_{i}\}_{i=1}^{N}
+\]
+
+\end_inset
+
+In an effort to nudge 
+\begin_inset Formula $x$
+\end_inset
+
+ as gently as possible with the addition of a vector 
+\begin_inset Formula $x_{\Delta}$
+\end_inset
+
+, 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+x_{\Delta}:X\in x_{\Delta}\sim{\mathcal{N}}(\mu=0,\sigma^{2}=\delta_{min}^{2})
+\]
+
+\end_inset
+
+so after each inner most loop,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+x=x+x_{\Delta}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+One of the largest obstacles for convergence is the intial conditions.
+ Optimization to find a global minimum over an infinite continuous domain
+ could be impossible.
+ If possible, the initial conditions could cause the conditions of the algorithm
+ to be satisfied but never converge.
+ An example being, initial conditions at some point where 
+\begin_inset Formula $f(x)$
+\end_inset
+
+ exponentially decays.
+\end_layout
+
+\begin_layout Standard
+For improvements, as shown findXzero() seemed to accelerate things quite
+ a bit in the file, <optimize.py>.
+ For the other files, as discussed in class, creating a multidimensional
+ discrete grid of f has large space and time complexities.
+ A possible idea that wasn't explored fully is the idea that if f were a
+ set of analytical functs.
+ Because polynomials, and their derivatives, have 
+\begin_inset Quotes eld
+\end_inset
+
+local
+\begin_inset Quotes erd
+\end_inset
+
+ critical points relative to an infinite domain.
+ Without understanding unconstrained optimization better, it seems possible
+ that polynomial approximations of functions could potentially reduce the
+ lattice cardinality but still gaurentee at least one lattice point per
+ local min.
+ This idea is not developed enough to be implemented.
+\end_layout
+
+\begin_layout Standard
+The following are the results of varied conditions from the Newton-Hook
+ method and the Newton-Raphson method which went without error and converged.
+ The red lines representing the residuals, the blue lines representing the
+ step size, and the green lines representing the trust region.
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+Figure 2.d.1:
+\end_layout
+
+\begin_layout Description
+\begin_inset Graphics
+	filename figures/NH_n2_l5e-1_i0.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+Figure 2.d.2:
+\end_layout
+
+\begin_layout Description
+\begin_inset Graphics
+	filename figures/NH_n2_l5e-2_i0.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+Figure 2.d.3:
+\end_layout
+
+\begin_layout Description
+\begin_inset Graphics
+	filename figures/NH_n4_l5e-2_i0.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+Figure 2.d.4:
+\end_layout
+
+\begin_layout Description
+\begin_inset Graphics
+	filename figures/NR_n4_l5e-2_i0.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+Figure 2.d.5:
+\end_layout
+
+\begin_layout Description
+\begin_inset Graphics
+	filename figures/NR_n4_l5e-3_i0.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+Figure 2.d.6:
+\end_layout
+
+\begin_layout Description
+\begin_inset Graphics
+	filename figures/NR_n4_l5e-4_i0.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
