@@ -1,0 +1,17 @@
+Don't get ahead of yourself. First formulate an accurate expectation for the behaviour of the code. If the actual behaviour is different, first check your equations, then test each component of the code (functions, data input/structures, ...). If there is still an issue, talk to your peers and to me. Introducing "hacks" like switching to regular Newton or sticking in "magic numbers" to force the outcome to be as you expect is not useful. It does not help your understanding - only getting to the bottom of the problem does!
+75/100
+
+Q1 You have a good idea here: proof by induction (at least that is how I interpret your argument):
+1. It is true for a 2 X 2 matrix.
+2. Take an n X n matrix and consider one step of Gaussian elimination. This give a matrix with a_11 \neq zero and a_i1 = 0 for i>1. Show that the submatrix you get by deleting row and column 1 from the n x n matrix is also diagonally dominant. By the assumption it is then non-singular.
+3. Show that, if the sub matrix is non-singular, so is the n x n matrix.
+However, there are a few mysteries in the derivations. In particular (3) to (4) and (5) to (6). You can probably fix this.
+
+Q2a This is fairly elementary and requires only a Schwarz inequality and the cosine rule for dot products. While I appreciate your effort, you should work on your analytical skills.
+
+Q3: "as might be intuitive for a polynomial function but not necessarily for a rational function" Actually, the proof that Newton converges quadratically only relies on the function in question having a Taylor expansion around the solution.
+* I don't understand what you mean by "helper function"?
+* How did you seed bisection? There is no a-priory upper bound for the location of the root, is there?
+* There really should be no need to switch from "rational Newton" to Newton. The former converges quadratically near the solution and usually gets there in fewer iterations than regular Newton.
+* You should solve g(x)=delta to find the next approximate solution, not g(x) = 0, which actually has no solution - (2) does not follow from (1) under point 3. on page 6.
+* The use of a "magic number" in your code should be explained in the text.
