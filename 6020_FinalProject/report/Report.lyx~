@@ -1,0 +1,609 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Final Project Report
+\end_layout
+
+\begin_layout Standard
+MCSC 6020G
+\end_layout
+
+\begin_layout Standard
+Fall 2019
+\end_layout
+
+\begin_layout Standard
+Derick Smith
+\end_layout
+
+\begin_layout Section
+Regression Assumption Testing
+\end_layout
+
+\begin_layout Subsection
+Project Explanation
+\end_layout
+
+\begin_layout Standard
+The purpose of this project was to investigate the means in which we test
+ the assumptions we make when performing linear regression.
+ The focus of the investigation was on the assumptions made about residual
+ errors in the construction of polynomial fits as it tends to be the most
+ interpretable and easiest to explain.
+ At an undergraduate level, testing assumptions is typically an introduction
+ to the topic.
+ Throughout the course of research, the methods of testing can be less than
+ rigorous in some cases.
+\end_layout
+
+\begin_layout Standard
+For instance, in the testing of the independence of residual error in a
+ fit based on a set of data with noise, or irreducible error, is subjective
+ at its core.
+ The definition of structurelessness of a predictor to residual plot cannot
+ be to stringent or else regression in real world application would not
+ be feasible.
+ If there were a fool-proof way to detect it with a usable degree of certainty,
+ it would be taught and an industry standard.
+ Machine learning might be a way to accomplish this.
+ Humans have incredible vision systems but the ability to eye-ball what
+ is structureless and what is not has its limitations.
+ One day, one might consider there is structure and another day, might not.
+ A machine could observe billions of regression examples and their effectiveness
+ relative to the structure of residuals, perhaps even using mean cluster
+ size with deviation.
+ If there are any important applied mathematical fields using subjective
+ testing, it would be drastically improved by the use of a machine.
+ This is the case for testing the independence of residual error and also
+ for the other assumptions.
+\end_layout
+
+\begin_layout Standard
+Testing for constant variance falls into this same category subjectivity.
+ The test can even use the same predictor to residual plot, as mentioned
+ above.
+ The key difference being, if there is constant variance, the plot points
+ will be evenly distributed throught the plot space.
+ Again, this is not a watered down explanation.
+ Of course, there is a little more to it but the mathematical algorithms
+ are not being skipped over because they don't exist by industry standards.
+\end_layout
+
+\begin_layout Description
+Figure 1: From file <Non-normalResiduals.py>.
+ Demonstrating non-constant variance and non-normality of residuals.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Non-normal_Fit2_ResPerX.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Thankfully, testing for normality is a slightly better story.
+ Yes, there are tests that will provide a rankable measure that can be compared
+ to other predictor to residual plots from any regression fit from any set
+ of data.
+ Example being the Shapiro-Wilks test.
+ It is effecient at confirming that a distribution is normal but it cannot
+ tell if a distribution is not normal.
+ A subtle difference.
+ Although the true irreducible error may be normal, as its distribution
+ begins to deviate from normal - due to noise, skew, small sample size,
+ or some hidden variables - it becomes indistiguishable from other types
+ of distributions such as uniform or poisson.
+ This is due to the random nature of error.
+ Although Shapiro-Wilks is used (as it should be), the Quantile-Quantile
+ (Q-Q) plot is heavily relied on to determine normality as it demonstrates
+ a direct comparison to what a normal distribution of errors would appear
+ to be and how much the residuals have deviated.
+\end_layout
+
+\begin_layout Description
+Figure 2: From file <Non-normalResiduals.py>.
+ Demonstrating the difficulty of determining normality from a frequency
+ plot of residuals.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Non-normal_Fit2_FreqRes.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+Figure 3: From file <Non-normalResiduals.py>.
+ Demonstrating the power of the Quantile-Quantile plot over the frequency
+ of residuals plot.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Non-normal_Fit2_QQplotRes.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+There are more methods of testing assumptions but these are fairly important
+ and commonly used.
+ All of which would benefit from machine learning to handle the subjective
+ analysis as it can build upon a larger foundation of examples.
+ Larger meaning it's not even close.
+ A machine could theoretically learn from every single regression analysis
+ that has ever been completed and make decisions based on that meta-anaylsis.
+ This is not to make it sound the current state of statistics gloomy.
+ Regression and regression testing (t-tests, z-test, F-tests, and so on)
+ are robust.
+ This means that even when assumptions are slightly violated, they retain
+ inferential and predictive power but does not mean we should not optimize
+ the ways of confirming regression assumptions.
+\end_layout
+
+\begin_layout Standard
+The following is a list of references that were used:
+\end_layout
+
+\begin_layout Itemize
+An Introduction to Mathematical Statistics and Its Applications, Fifth Edition,
+ R.
+ Larsen and M.
+ Marx
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Chapters three to six covers the premise of statistics and regression analysis.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+A Second Course in Statistics: Regression Analysis, Seventh Edition, W.
+ Mendenhall and T.
+ Sincich 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Personal favourite.
+ The notation is beautiful.
+\end_layout
+
+\begin_layout Itemize
+Chapter eight covers the testing of error assumptions.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Design and Analysis of Experiments, Ninth Edition, D.
+ Montgomery
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Section 3.4 covers the testing of error assumptions.
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Code Documentation
+\end_layout
+
+\begin_layout Enumerate
+<NormalResiduals.py>
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+yHatFunc(x, betas)
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+This function calculates the estimated y values (aka 
+\begin_inset Formula $\hat{y}$
+\end_inset
+
+) based on the set of predictors values, 
+\begin_inset Formula $x$
+\end_inset
+
+, using their corresponding coefficients, 
+\begin_inset Formula $\beta$
+\end_inset
+
+, from the regression model.
+\end_layout
+
+\begin_layout Enumerate
+Returns the array 
+\begin_inset Formula $\hat{y}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+lineFunc(x, betas)
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+This function creates the set of data needed to construct a line representing
+ the regression model fit to be super impose onto the data.
+\end_layout
+
+\begin_layout Enumerate
+Returns 
+\begin_inset Formula $(x,y)$
+\end_inset
+
+ tuple array of the regression fit.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+# Import data #
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Self-explanatory.
+ Imports csv file and to create a panda dataframe.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+# Var Selection #
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+This section simply simulates a watered down way of selecting predictors
+ from a set of data.
+\end_layout
+
+\begin_layout Enumerate
+It creates scatter plots the response (dependent) variable, 
+\begin_inset Formula $y$
+\end_inset
+
+, with each predictor (independent) variable, 
+\begin_inset Formula $x$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+# Select x7 #
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+This simulates that through some method of variable selection that 
+\begin_inset Formula $x_{7}$
+\end_inset
+
+ best describes the behaviour of 
+\begin_inset Formula $y$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Any other variable can be selected to see how it impacts the testing that
+ follows.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+# Degree zero polyfit #
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Uses Numpy's function called polyfit() to find the least squared fit at
+ degree zero.
+ This is unnecessary at degree zero since the fit is just the mean of the
+ response.
+\end_layout
+
+\begin_layout Enumerate
+# Polyfit
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Plots the data with a super-imposed line of the fit.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+# Plot residuals
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Plots the residual values on the vertical axis and their corresponding predictor
+ values on the horizontal axis to observe if the residuals are structureless
+ and have constant variance.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+# Histogram Residuals
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+This is to observe the frequency distibution of residuals and also demonstrate
+ the difficulty of assessing whether the residuals are normal from this
+ plot.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+# QQ Plot Residuals
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+This is to contrast the histogram with powerfulness of the Q-Q plot in determini
+ng how normal the residuals appear to be.
+\end_layout
+
+\begin_layout Enumerate
+The residuals are standardized before calling the statsmodels.api package
+ function qqplot() since it is much easier to interpret the plot with both
+ vertical axis (experimental quantiles) and horizontal axis (theoretical
+ quantiles) sharing the same scale.
+ 
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Enumerate
+# Degree one polyfit #
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+This section is identical to # Degree zero polyfit #, except the degree
+ of fit used in polyfit() have been incremented by one along with the python
+ code variable names.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+# Degree two polyfit #
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+This section is identical to # Degree one polyfit #, except the degree of
+ fit used in polyfit() have been incremented by one along with the python
+ code variable names.
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Enumerate
+<Non-normalResiduals.py>
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+The purpose of this file is to simulate a case when assumptions have been
+ violated and how it impacts the testing of assumptions.
+\end_layout
+
+\begin_layout Enumerate
+This file is identical to <NormalResiduals.py> except for # Create Data #
+ has replaced # Import Data # and a new function called yFunc().
+\end_layout
+
+\begin_layout Enumerate
+yFunc()
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+The purpose of this function is to simulate data that has an unknown interaction
+ term that causes the response variance to increase as the predictor value
+ increases.
+\end_layout
+
+\begin_layout Enumerate
+Every simulated value of the response has noise added.
+ The noise is normally distributed with a mean of zero and deviation of
+ one.
+\end_layout
+
+\begin_layout Enumerate
+This random normal distribution of noise may cause some response values
+ to be negative.
+ To ensure non-negative response values in the data, the Numpy function,
+ abs(), computes the absolute value of each response array element.
+\end_layout
+
+\begin_layout Enumerate
+Returns simulated response array.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+# Create Data #
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+This purpose of this section is to simulate data with one response variable,
+ one known predictor, and one hidden predictor.
+ It is constructed in a way to violate the normality and constant variance
+ assumption.
+\end_layout
+
+\begin_layout Enumerate
+Two predictor variable arrays are created, 
+\begin_inset Formula $x_{0}$
+\end_inset
+
+ and 
+\begin_inset Formula $x_{1}$
+\end_inset
+
+ with the same domain.
+ Their domain space is split evenly into intervals.
+ The array 
+\begin_inset Formula $x_{1}$
+\end_inset
+
+ is shuffled to ensure a level of independence from 
+\begin_inset Formula $x_{0}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+yFunc(
+\begin_inset Formula $x_{0},x_{1}$
+\end_inset
+
+) is called to populate the array 
+\begin_inset Formula $y$
+\end_inset
+
+, the simulated response variable.
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Enumerate
+<Non-NormalResiduals_Transformation.py>
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+The purpose of this file is to simulate the way in which a transformation
+ might be used on the response variable data in order to reel in a non-constant
+ variance or non-normal residual distribution.
+\end_layout
+
+\begin_layout Enumerate
+This file is identical to <Non-NormalResiduals.py> except it includes a new
+ section # Transform y #.
+\end_layout
+
+\begin_layout Enumerate
+# Transformation y #
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+The purpose of this section is to show how the scatter plot of different
+ transformed response variables and the predictor changes.
+\end_layout
+
+\begin_layout Enumerate
+In this simulation, the square root of the response is chosen to perform
+ the proceeding model building and assumption testing, however, other transforma
+tions can be selected to see how it changes the results.
+\end_layout
+
+\end_deeper
+\end_deeper
+\end_body
+\end_document
